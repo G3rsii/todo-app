@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaMagnifyingGlas } from "react-icons/fa6"
+import { FaMagnifyingGlass } from "react-icons/fa6";
 import { IoMdClose } from "react-icons/io";
 
 const SearchBar = ({value, onChange, handleSearch, onClearSearch}) => {
@@ -18,7 +18,9 @@ const SearchBar = ({value, onChange, handleSearch, onClearSearch}) => {
                 <IoMdClose
                     className="text-slate-500 cursor-pointer hover:text-black"
                     onClick={onClearSearch} />)}
-            <FaMagnifyingGlas
+
+
+            <FaMagnifyingGlass
                 className="text-slate-400 cursor-pointer hover:text-black"
                 onClick={handleSearch} />
         </div>
