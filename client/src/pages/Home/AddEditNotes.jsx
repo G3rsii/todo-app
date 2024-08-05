@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TagInput from '../../components/Input/TagInput'
 
 const AddEditNotes = () => {
+
+    const [title, setTitle] = useState("");
+    const [content, setContent] = useState("");
+    const [tags, setTags] = useState("");
+
   return (
     <div>
         <div className='flex flex-col gap-2'>
@@ -10,7 +15,10 @@ const AddEditNotes = () => {
             type='text'
             className='text-2xl text-slate-950 outline-nano'
             placeholder='Go To Gym At 5'
+            value={title}
+            onChange={({target}) => setTitle(target.value)}
             />
+            
         </div>
 
         <div className='flex flex-col gap-2 mt-4'>
@@ -20,12 +28,14 @@ const AddEditNotes = () => {
             className='text-sm text-slate-950 outline-nano bg-slate-50 p-2 rounded'
             placeholder='Content'
             rows={10}
+            value={content}
+            onChange={({target}) => setContent(target.value)}
             ></textarea>
         </div>
 
         <div className='mt-3'>
             <label className='input-label'>TAGS</label>
-            <TagInput/>
+            <TagInput tags={tags} setTags={setTags} / >
         </div>
         <button className='btn-primary font-medium mt-5 p-3' onClick={() => {}}>
             ADD
