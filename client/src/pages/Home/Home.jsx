@@ -32,24 +32,6 @@ const Home = () => {
 
   const navigate = useNavigate();
 
-   // Get user info
-
-   const getUserInfo = async () => {
-    try {
-      const response = await axiosInstance.get("/get-user");
-      if (response.data && response.data.user) {
-        setUserInfo(response.data.user);
-      }
-    } catch (error) {
-      
-      if (error.response.status === 401) {
-        localStorage.clear();
-        navigate("/login");
-      }
-    }
-  };
-
-
   const handleEdit = (noteDetails) => {
     setOpenAddEditModal({
       isShown: true,
@@ -73,7 +55,23 @@ const Home = () => {
     });
   };
 
- 
+  // Get user info
+
+  const getUserInfo = async () => {
+    try {
+      const response = await axiosInstance.get("/get-user");
+      if (response.data && response.data.user) {
+        setUserInfo(response.data.user);
+      }
+    } catch (error) {
+      
+      if (error.response.status === 401) {
+        localStorage.clear();
+        navigate("/login");
+      }
+    }
+  };
+
   // Get all notes
 
   const getAllNotes = async () => {
