@@ -8,7 +8,7 @@ function authenticateToken(req, res, next) {
 
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
         if (err) return res.status(401);
-        req.user = user;
+        req.user = decoded;
         next();
     });
 }
